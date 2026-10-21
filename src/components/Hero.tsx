@@ -95,7 +95,7 @@ export default function Hero() {
 
       </div>
 
-      <div className="relative mt-12 sm:mt-10 lg:-mt-24">
+      <div className="relative mt-12 sm:mt-14 lg:mt-20">
         <ContainerScroll
           titleComponent={
             <div className="flex flex-col items-center gap-3 px-4">

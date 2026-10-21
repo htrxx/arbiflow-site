@@ -32,16 +32,16 @@ export const ContainerScroll = ({
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  // Smaller lift on phones so the title never rides up into the content above it.
-  const translate = useTransform(scrollYProgress, [0, 1], isMobile ? [0, -24] : [0, -100]);
+  // Small lift, always less than the gap above the title, so it never rides up into the content above it.
+  const translate = useTransform(scrollYProgress, [0, 1], isMobile ? [0, -16] : [0, -40]);
 
   return (
     <div
-      className="relative flex items-start justify-center px-3 pb-10 pt-2 sm:px-6 lg:h-[70rem] lg:items-center lg:px-12 lg:pb-0 lg:pt-0"
+      className="relative flex items-start justify-center px-3 pb-10 pt-2 sm:px-6 lg:px-12 lg:pb-28"
       ref={containerRef}
     >
       <div
-        className="py-6 lg:py-24 w-full relative"
+        className="py-6 lg:py-8 w-full relative"
         style={{
           perspective: "1000px",
         }}
