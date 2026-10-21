@@ -14,7 +14,7 @@ const WORDS = ["Da compra", "Do estoque", "Da venda", "Do envio"];
 function Rotator() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % WORDS.length), 2400);
+    const t = setInterval(() => setI((v) => (v + 1) % WORDS.length), 1600);
     return () => clearInterval(t);
   }, []);
   // All phrases share one grid cell: the invisible copies reserve the width of the longest one,
@@ -32,8 +32,8 @@ function Rotator() {
           className="text-gradient col-start-1 row-start-1 whitespace-nowrap"
           initial={{ y: "60%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-60%", opacity: 0, transition: { duration: 0.3, ease } }}
-          transition={{ duration: 0.55, ease }}
+          exit={{ y: "-60%", opacity: 0, transition: { duration: 0.22, ease } }}
+          transition={{ duration: 0.4, ease }}
         >
           {WORDS[i]}
         </motion.span>
