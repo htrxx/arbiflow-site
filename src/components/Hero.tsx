@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { StarfieldBackground } from "@/components/ui/pricing";
 import { ease } from "@/components/ui/primitives";
+import { SCREENSHOTS } from "@/lib/screens";
 
 const WORDS = ["Da compra", "Do estoque", "Da venda", "Do envio"];
 
@@ -104,14 +105,15 @@ export default function Hero() {
             </div>
           }
         >
+          {/* original PNG at native size, no recompression */}
           <Image
-            src="/screens/dashboard.webp"
-            alt="Dashboard do ArbiFlow com lucro líquido real, faturamento e patrimônio em estoque"
-            width={2000}
-            height={940}
+            src={SCREENSHOTS.dashboard.src}
+            alt="Dashboard do ArbiFlow com faturamento, lucro líquido e estoque"
+            width={SCREENSHOTS.dashboard.width}
+            height={SCREENSHOTS.dashboard.height}
             priority
-            sizes="(max-width: 768px) 100vw, 1024px"
-            className="mx-auto h-full w-full rounded-xl object-cover object-[42%_0%] md:rounded-2xl lg:object-[20%_0%]"
+            unoptimized
+            className="mx-auto h-full w-full rounded-xl object-cover object-[52%_0%] md:rounded-2xl lg:object-[40%_0%]"
             draggable={false}
           />
         </ContainerScroll>

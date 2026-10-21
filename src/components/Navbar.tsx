@@ -6,13 +6,10 @@ import { useEffect, useState } from "react";
 import { Logo, ease } from "@/components/ui/primitives";
 
 export const NAV = [
-  { id: "projeto", label: "Nosso projeto" },
   { id: "recursos", label: "Recursos" },
-  { id: "importadores", label: "Importadores" },
   { id: "tour", label: "Plataforma" },
   { id: "multicontas", label: "Multicontas" },
   { id: "planos", label: "Planos" },
-  { id: "sobre", label: "Sobre nós" },
   { id: "faq", label: "FAQ" },
 ];
 

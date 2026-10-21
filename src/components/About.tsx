@@ -1,16 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Eye, HeartHandshake, Target, Zap } from "lucide-react";
 import { useRef } from "react";
 import { SectionHeading, ease } from "@/components/ui/primitives";
-
-const VALUES = [
-  { icon: Eye, t: "Transparência", d: "Número bonito não paga boleto. Mostramos o lucro como ele é." },
-  { icon: Zap, t: "Simplicidade", d: "Um clique a menos é tempo a mais para vender." },
-  { icon: Target, t: "Foco no vendedor", d: "Construído a partir da rotina real de quem vende em marketplace." },
-  { icon: HeartHandshake, t: "Parceria", d: "Ouvimos cada feedback e lançamos melhorias toda semana." },
-];
 
 const TIMELINE = [
   { k: "O problema", d: "Vendíamos em marketplace e o painel dizia que estava tudo ótimo. A conta bancária discordava." },
@@ -37,22 +29,6 @@ export default function About() {
             }
             subtitle="O ArbiFlow nasceu dentro de uma operação de arbitragem em marketplace. Nossa missão é dar ao pequeno e médio vendedor a mesma clareza financeira que as grandes lojas têm."
           />
-          <div className="grid gap-3 sm:grid-cols-2">
-            {VALUES.map((v, i) => (
-              <motion.div
-                key={v.t}
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease, delay: i * 0.07 }}
-                className="rounded-2xl border border-line-soft bg-surface/60 p-5"
-              >
-                <v.icon className="h-5 w-5 text-cyan" />
-                <p className="mt-3 font-display font-semibold">{v.t}</p>
-                <p className="mt-1 text-sm text-muted">{v.d}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
         <ol ref={ref} className="relative flex flex-col gap-10 self-center pl-10">

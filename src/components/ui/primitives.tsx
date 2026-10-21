@@ -2,7 +2,7 @@
 
 import { animate, motion, useInView, useMotionValue, useTransform, type Variants } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 export const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -102,6 +102,8 @@ export function Counter({
 export function BrowserFrame({
   src,
   alt,
+  width,
+  height,
   priority,
   className = "",
   url = "app.arbiflow.com.br",
@@ -109,15 +111,20 @@ export function BrowserFrame({
 }: {
   src: string;
   alt: string;
+  /** Native pixel size of the screenshot. The frame never grows past it, so the image is never upscaled. */
+  width: number;
+  height: number;
   priority?: boolean;
   className?: string;
   url?: string;
   /** On small screens, show the screenshot larger with horizontal scrolling so details stay readable. */
   scrollable?: boolean;
 }) {
+  const mobileWidth = Math.min(820, width);
   return (
     <div
-      className={`overflow-hidden rounded-2xl border border-line bg-[#0b0d14] shadow-[0_40px_120px_-30px_rgba(31,107,255,0.45)] ${className}`}
+      className={`mx-auto w-full overflow-hidden rounded-2xl border border-line bg-[#0b0d14] shadow-[0_40px_120px_-30px_rgba(31,107,255,0.45)] ${className}`}
+      style={{ maxWidth: width + 2 }}
     >
       <div className="flex items-center gap-3 border-b border-line-soft bg-[#0d1120] px-4 py-2.5">
         <div className="flex gap-1.5" aria-hidden>
@@ -131,14 +138,16 @@ export function BrowserFrame({
         <div className="w-10" aria-hidden />
       </div>
       <div className={scrollable ? "overflow-x-auto overscroll-x-contain [scrollbar-width:thin] md:overflow-visible" : undefined}>
+        {/* unoptimized: serve the original PNG untouched (no recompression) for maximum sharpness */}
         <Image
           src={src}
           alt={alt}
-          width={2000}
-          height={940}
+          width={width}
+          height={height}
           priority={priority}
-          sizes={scrollable ? "(max-width: 768px) 820px, 1100px" : "(max-width: 768px) 100vw, 1100px"}
-          className={`block h-auto ${scrollable ? "w-[820px] max-w-none md:w-full md:max-w-full" : "w-full"}`}
+          unoptimized
+          className={`block h-auto ${scrollable ? "w-[var(--mobile-w)] max-w-none md:w-full md:max-w-full" : "w-full"}`}
+          style={scrollable ? ({ "--mobile-w": `${mobileWidth}px` } as CSSProperties) : undefined}
         />
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import { SCREENSHOTS, type ScreenId } from "@/lib/screens";
 import {
   Boxes,
   ClipboardList,
@@ -75,10 +76,10 @@ const BENEFITS = [
   },
 ];
 
-const SCREENS = [
+const SCREENS: { id: ScreenId; label: string; text: string }[] = [
   { id: "vendas", label: "Vendas & Envios", text: "Cada pedido com custo, margem e ROI ao lado, e status de envio em 1 clique." },
   { id: "estoque", label: "Estoque", text: "Disponível, a caminho, custo médio e valor total por SKU, com alerta de estoque baixo." },
-  { id: "fechamento", label: "Fechamento", text: "DRE mensal do faturamento bruto ao lucro líquido real, pronto para imprimir." },
+  { id: "relatorios", label: "Relatórios", text: "Faturamento e lucro dia a dia, com a variação em relação ao mês anterior." },
 ];
 
 const FAQ = [
@@ -404,7 +405,7 @@ export default function Presell({ headline, cta, variant }: { headline: Headline
                     className="mt-6"
                   >
                     <BrowserFrame
-                      src={`/screens/${SCREENS[screen].id}.webp`}
+                      {...SCREENSHOTS[SCREENS[screen].id]}
                       alt={`Tela ${SCREENS[screen].label} do ArbiFlow`}
                       url={`app.arbiflow.com.br/${SCREENS[screen].id}`}
                       scrollable

@@ -1,45 +1,53 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { BarChart3, Boxes, FileText, LayoutDashboard, MoveHorizontal, Settings, Truck } from "lucide-react";
+import { BarChart3, Boxes, LayoutDashboard, MoveHorizontal, Receipt, Settings, Share2, Truck } from "lucide-react";
 import { useState } from "react";
 import { BrowserFrame, SectionHeading, ease } from "@/components/ui/primitives";
+import { SCREENSHOTS, type ScreenId } from "@/lib/screens";
 
-const SCREENS = [
+const SCREENS: { id: ScreenId; icon: typeof Truck; label: string; title: string; text: string }[] = [
   {
     id: "dashboard",
     icon: LayoutDashboard,
     label: "Dashboard",
-    title: "Modo Foco: o essencial em uma tela",
-    text: "Lucro líquido real, faturamento, patrimônio em estoque, curva de desempenho e meta mensal com ritmo diário necessário.",
+    title: "Seu resumo em uma olhada",
+    text: "Faturamento, lucro líquido com margem e ROI, valor em estoque, evolução das vendas no período e meta mensal de lucro.",
   },
   {
     id: "vendas",
     icon: Truck,
     label: "Vendas & Envios",
     title: "Cada venda com o lucro real ao lado",
-    text: "Status de envio em 1 clique (a separar, separado, enviado), alerta de atrasos, custo, margem e ROI por pedido.",
+    text: "Faturamento bruto, líquido a receber e lucro real. Status de envio em 1 clique, alerta de atrasos e aviso de vendas sem custo definido.",
   },
   {
     id: "estoque",
     icon: Boxes,
-    label: "Estoque Físico",
+    label: "Estoque",
     title: "Estoque e compras sob controle",
-    text: "Disponível, a caminho, custo médio e valor total por SKU. Estoque baixo destacado e scanner para dar entrada em segundos.",
+    text: "Unidades em estoque, estoque baixo, compras a caminho e SKUs cadastrados. Produtos duplicados entre canais são detectados para você unificar.",
   },
   {
     id: "relatorios",
     icon: BarChart3,
     label: "Relatórios",
     title: "Performance comparada com o mês anterior",
-    text: "Evolução diária de faturamento e lucro, ranking dos produtos mais lucrativos e banners prontos para stories.",
+    text: "Faturamento, lucro, pedidos e ticket médio com a variação do período, e a evolução diária de faturamento e lucro.",
   },
   {
-    id: "fechamento",
-    icon: FileText,
-    label: "Fechamento",
-    title: "DRE mensal sem contador do lado",
-    text: "Receita bruta, CMV, comissões, fretes, despesas e embalagens até o lucro líquido real — pronto para imprimir.",
+    id: "despesas",
+    icon: Receipt,
+    label: "Despesas",
+    title: "Todos os custos da operação",
+    text: "Insumos e embalagens, custos fixos e operacionais, e o rateio médio de embalagem por pacote enviado.",
+  },
+  {
+    id: "banner",
+    icon: Share2,
+    label: "Banners",
+    title: "Seus resultados prontos para postar",
+    text: "Gere um banner de performance para o feed (1:1) ou stories (9:16), escolha o período e o destaque, e ative o modo privacidade.",
   },
   {
     id: "configuracoes",
@@ -111,7 +119,7 @@ export default function Tour() {
               </div>
               <motion.div initial={{ scale: 0.98 }} animate={{ scale: 1 }} transition={{ duration: 0.6, ease }}>
                 <BrowserFrame
-                  src={`/screens/${s.id}.webp`}
+                  {...SCREENSHOTS[s.id]}
                   alt={`Tela ${s.label} do ArbiFlow`}
                   url={`app.arbiflow.com.br/${s.id}`}
                   scrollable

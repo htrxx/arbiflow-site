@@ -4,8 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   Bell,
   Check,
-  DollarSign,
-  LayoutDashboard,
   Package,
   PackageCheck,
   ScanBarcode,
@@ -117,48 +115,6 @@ function NotifyDemo() {
   );
 }
 
-/* ---------- Dashboard ---------- */
-function DashDemo() {
-  return (
-    <div className="rounded-2xl border border-line-soft bg-ink/60 p-4">
-      <div className="flex items-end justify-between">
-        <div>
-          <p className="tabular-nums text-[10px] uppercase tracking-widest text-muted">Lucro líquido real</p>
-          <p className="mt-1 font-display text-2xl font-semibold">R$ 1.399,10</p>
-        </div>
-        <span className="rounded-full bg-brand/15 px-2 py-0.5 tabular-nums text-[11px] text-brand-2">ROI 43,62%</span>
-      </div>
-      <svg viewBox="0 0 240 70" className="mt-3 h-20 w-full" aria-hidden>
-        <defs>
-          <linearGradient id="sparkfill" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stopColor="#1f6bff" stopOpacity="0.35" />
-            <stop offset="1" stopColor="#1f6bff" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <motion.path
-          d="M0 62 C40 62 60 60 90 58 S120 30 140 32 S175 34 190 30 S220 8 240 4 L240 70 L0 70Z"
-          fill="url(#sparkfill)"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.8 }}
-        />
-        <motion.path
-          d="M0 62 C40 62 60 60 90 58 S120 30 140 32 S175 34 190 30 S220 8 240 4"
-          fill="none"
-          stroke="#3b82ff"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.6, ease }}
-        />
-      </svg>
-    </div>
-  );
-}
-
 /* ---------- Scanner ---------- */
 function ScanDemo() {
   const [count, setCount] = useState(147);
@@ -236,43 +192,6 @@ function OrdersDemo() {
   );
 }
 
-/* ---------- Lucro por venda ---------- */
-function ProfitDemo() {
-  const lines = [
-    { k: "Venda #2000015491499505", v: "R$ 363,00", c: "text-text" },
-    { k: "Comissão do marketplace", v: "− R$ 41,74", c: "text-danger" },
-    { k: "Frete", v: "− R$ 24,45", c: "text-danger" },
-    { k: "Custo do produto", v: "− R$ 224,99", c: "text-danger" },
-  ];
-  return (
-    <div className="rounded-2xl border border-line-soft bg-ink/60 p-4 tabular-nums text-[12px]">
-      {lines.map((l, i) => (
-        <motion.div
-          key={l.k}
-          className="flex justify-between gap-3 py-1.5"
-          initial={{ opacity: 0, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 + i * 0.12 }}
-        >
-          <span className="truncate text-muted">{l.k}</span>
-          <span className={`shrink-0 ${l.c}`}>{l.v}</span>
-        </motion.div>
-      ))}
-      <motion.div
-        className="mt-2 flex justify-between border-t border-line pt-2.5 text-[13px]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.8 }}
-      >
-        <span className="text-text">Lucro real</span>
-        <span className="text-profit">+R$ 71,82 · ROI 31,9%</span>
-      </motion.div>
-    </div>
-  );
-}
-
 export default function Features() {
   return (
     <section id="recursos" className="relative py-24 sm:py-32">
@@ -287,24 +206,6 @@ export default function Features() {
         />
 
         <div className="mt-16 grid gap-4 md:grid-cols-6">
-          <Card
-            className="md:col-span-3"
-            icon={DollarSign}
-            title="Lucro real no marketplace"
-            text="Comissão, tarifa fixa, frete e custo do produto descontados venda por venda."
-          >
-            <ProfitDemo />
-          </Card>
-          <Card
-            className="md:col-span-3"
-            icon={LayoutDashboard}
-            title="Dashboard útil e simplificada"
-            text="Os números que importam em uma olhada: lucro líquido, faturamento, patrimônio em estoque, meta mensal e envios pendentes. Modo foco com um atalho."
-            delay={0.05}
-          >
-            <DashDemo />
-          </Card>
-
           <Card
             className="md:col-span-6"
             icon={Bell}
@@ -326,7 +227,7 @@ export default function Features() {
             className="md:col-span-3"
             icon={Package}
             title="Controle total das encomendas"
-            text="Registre compras de fornecedores, acompanhe o que está a caminho e veja o custo médio atualizar sozinho quando o lote chega."
+            text="Lance tudo o que pagou no lote — produto, frete internacional, taxas e impostos —, acompanhe o que está a caminho e veja o custo médio atualizar sozinho quando ele chega. Indispensável para quem importa."
             delay={0.05}
           >
             <OrdersDemo />
@@ -341,7 +242,7 @@ export default function Features() {
         >
           <div className="flex items-center gap-3 text-sm text-muted">
             <TrendingUp className="h-5 w-5 shrink-0 text-profit" />
-            Também inclui: calculadora de margem, conciliação Mercado Pago, importação de planilhas, histórico de margens e exportação.
+            Também inclui: dashboard com meta mensal, calculadora de margem, conciliação Mercado Pago, importação de planilhas e exportação.
           </div>
           <span className="hidden sm:block">
             <Logo />

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Faturar não é lucrar — ArbiFlow",
     description: "Veja o lucro real de cada venda depois de taxas, frete e custo do produto.",
-    images: ["/screens/dashboard.webp"],
+    images: ["/screens/dashboard.png"],
     locale: "pt_BR",
     type: "website",
   },

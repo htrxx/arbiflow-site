@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ArbiFlow — Tudo sob controle",
     description: "Veja o lucro real da sua operação nos marketplaces.",
-    images: ["/screens/dashboard.webp"],
+    images: ["/screens/dashboard.png"],
     locale: "pt_BR",
     type: "website",
   },
