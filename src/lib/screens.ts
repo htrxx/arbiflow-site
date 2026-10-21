@@ -1,6 +1,7 @@
 /** Real app screenshots, served exactly as provided (original PNG, native size). */
 export const SCREENSHOTS = {
   dashboard: { src: "/screens/dashboard.png", width: 1600, height: 787 },
+  heroVendas: { src: "/screens/hero-vendas.jpg", width: 1600, height: 900 },
   vendas: { src: "/screens/vendas.png", width: 1388, height: 646 },
   estoque: { src: "/screens/estoque.png", width: 1394, height: 575 },
   relatorios: { src: "/screens/relatorios.png", width: 1363, height: 744 },

@@ -95,7 +95,7 @@ export default function Hero() {
 
       </div>
 
-      <div className="relative mt-14 sm:mt-6 lg:-mt-40">
+      <div className="relative mt-12 sm:mt-10 lg:-mt-24">
         <ContainerScroll
           titleComponent={
             <div className="flex flex-col items-center gap-3 px-4">
@@ -105,19 +105,18 @@ export default function Hero() {
             </div>
           }
         >
-          {/* original PNG at native size, no recompression */}
+          {/* original file at native size, no recompression */}
           <Image
-            src={SCREENSHOTS.dashboard.src}
-            alt="Dashboard do ArbiFlow com faturamento, lucro líquido e estoque"
-            width={SCREENSHOTS.dashboard.width}
-            height={SCREENSHOTS.dashboard.height}
+            src={SCREENSHOTS.heroVendas.src}
+            alt="Tela Vendas & Envios do ArbiFlow com faturamento bruto, líquido a receber, lucro real e status de envio"
+            width={SCREENSHOTS.heroVendas.width}
+            height={SCREENSHOTS.heroVendas.height}
             priority
             unoptimized
-            className="mx-auto h-full w-full rounded-xl object-cover object-[52%_0%] md:rounded-2xl lg:object-[40%_0%]"
+            className="block h-auto w-full"
             draggable={false}
           />
         </ContainerScroll>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" aria-hidden />
       </div>
     </section>
   );
