@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Logo, ease } from "@/components/ui/primitives";
@@ -14,8 +14,7 @@ export const NAV = [
 ];
 
 export default function Navbar() {
-  const { scrollY, scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
+  const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
@@ -40,11 +39,6 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <motion.div
-        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-gradient-to-r from-brand via-brand-2 to-cyan"
-        style={{ scaleX: progress }}
-        aria-hidden
-      />
       <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6">
         <motion.nav
           initial={{ y: -40, opacity: 0 }}
