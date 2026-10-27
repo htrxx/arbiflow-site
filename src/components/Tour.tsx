@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { BarChart3, Boxes, LayoutDashboard, MoveHorizontal, Receipt, Settings, Share2, Truck } from "lucide-react";
+import { BarChart3, Boxes, LayoutDashboard, MoveHorizontal, Receipt, RotateCcw, ScanBarcode, Settings, Share2, Truck } from "lucide-react";
 import { useState } from "react";
 import { BrowserFrame, SectionHeading, ease } from "@/components/ui/primitives";
 import { SCREENSHOTS, type ScreenId } from "@/lib/screens";
@@ -29,11 +29,18 @@ const SCREENS: { id: ScreenId; icon: typeof Truck; label: string; title: string;
     text: "Unidades em estoque, estoque baixo, compras a caminho e SKUs cadastrados. Produtos duplicados entre canais são detectados para você unificar.",
   },
   {
+    id: "scanner",
+    icon: ScanBarcode,
+    label: "Scanner",
+    title: "Confira cada pacote antes de despachar",
+    text: "Bipe a etiqueta pela câmera ou leitor USB e marque o pedido como embalado. Também dá entrada no estoque, consulta produtos e faz inventário.",
+  },
+  {
     id: "relatorios",
     icon: BarChart3,
     label: "Relatórios",
     title: "Performance comparada com o mês anterior",
-    text: "Faturamento, lucro, pedidos e ticket médio com a variação do período, e a evolução diária de faturamento e lucro.",
+    text: "Faturamento, lucro, pedidos e margem com a variação do mês anterior, de onde vem o faturamento e quanto foi investido em compras.",
   },
   {
     id: "despesas",
@@ -41,6 +48,13 @@ const SCREENS: { id: ScreenId; icon: typeof Truck; label: string; title: string;
     label: "Despesas",
     title: "Todos os custos da operação",
     text: "Insumos e embalagens, custos fixos e operacionais, e o rateio médio de embalagem por pacote enviado.",
+  },
+  {
+    id: "devolucoes",
+    icon: RotateCcw,
+    label: "Devoluções",
+    title: "Devoluções sem perder o controle",
+    text: "Veja o que voltou do marketplace, confirme a entrada no estoque e registre devoluções manuais pelo número do pedido.",
   },
   {
     id: "banner",

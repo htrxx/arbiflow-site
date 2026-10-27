@@ -8,6 +8,7 @@ import { Logo, ease } from "@/components/ui/primitives";
 export const NAV = [
   { id: "recursos", label: "Recursos" },
   { id: "tour", label: "Plataforma" },
+  { id: "celular", label: "Celular" },
   { id: "multicontas", label: "Multicontas" },
   { id: "planos", label: "Planos" },
   { id: "faq", label: "FAQ" },

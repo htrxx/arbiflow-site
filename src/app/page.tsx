@@ -5,6 +5,7 @@ import About from "@/components/About";
 import { FaqSection, FinalCta, Footer } from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import MobileApp from "@/components/MobileApp";
 import MultiAccount from "@/components/MultiAccount";
 import Navbar from "@/components/Navbar";
 import Pricing from "@/components/Pricing";
@@ -20,6 +21,7 @@ export default function Home() {
         <Project />
         <Features />
         <Tour />
+        <MobileApp />
         <MultiAccount />
         <Pricing />
         <About />

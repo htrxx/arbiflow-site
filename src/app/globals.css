@@ -39,10 +39,17 @@
 
   --animate-marquee: marquee 40s linear infinite;
   --animate-scan: scan 2.6s ease-in-out infinite;
+  --animate-phone-scroll: phone-scroll 16s ease-in-out infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+  /* scrolls a tall phone screenshot inside its frame (the frame is a size container) */
+  @keyframes phone-scroll {
+    0%, 12% { transform: translateY(0); }
+    46%, 60% { transform: translateY(calc(-100% + 100cqh)); }
+    94%, 100% { transform: translateY(0); }
   }
   @keyframes scan {
     0%, 100% { transform: translateY(0); }
@@ -105,5 +112,5 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-marquee, .animate-scan { animation: none !important; }
+  .animate-marquee, .animate-scan, .animate-phone-scroll { animation: none !important; }
 }
