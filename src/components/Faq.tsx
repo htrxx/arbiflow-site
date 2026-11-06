@@ -17,6 +17,10 @@ const FAQ = [
     a: "Não. Ao conectar sua conta, seus produtos e vendas são importados automaticamente do marketplace. Você só precisa cadastrar os custos, quando necessário, para o ArbiFlow calcular o lucro real.",
   },
   {
+    q: "Como funciona o scanner?",
+    a: "Pelo celular, usando a câmera, ou com um leitor de código de barras USB no computador. Você confere etiquetas antes de despachar, dá entrada em mercadorias, consulta produtos e faz inventário bipando os itens.",
+  },
+  {
     q: "Consigo gerenciar mais de uma conta de marketplace?",
     a: "Sim, em qualquer plano. Você conecta várias contas, alterna entre elas em um clique e compartilha o mesmo estoque físico, com sincronização automática a cada venda.",
   },

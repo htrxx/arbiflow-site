@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { BarChart3, Boxes, LayoutDashboard, MoveHorizontal, Receipt, RotateCcw, ScanBarcode, Settings, Share2, Truck } from "lucide-react";
+import { BarChart3, LayoutDashboard, MoveHorizontal, Receipt, Share2, Truck } from "lucide-react";
 import { useState } from "react";
 import { BrowserFrame, SectionHeading, ease } from "@/components/ui/primitives";
 import { SCREENSHOTS, type ScreenId } from "@/lib/screens";
@@ -13,27 +13,6 @@ const SCREENS: { id: ScreenId; icon: typeof Truck; label: string; title: string;
     label: "Dashboard",
     title: "Seu resumo em uma olhada",
     text: "Faturamento, lucro líquido com margem e ROI, valor em estoque, evolução das vendas no período e meta mensal de lucro.",
-  },
-  {
-    id: "vendas",
-    icon: Truck,
-    label: "Vendas & Envios",
-    title: "Cada venda com o lucro real ao lado",
-    text: "Faturamento bruto, líquido a receber e lucro real. Status de envio em 1 clique, alerta de atrasos e aviso de vendas sem custo definido.",
-  },
-  {
-    id: "estoque",
-    icon: Boxes,
-    label: "Estoque",
-    title: "Estoque e compras sob controle",
-    text: "Unidades em estoque, estoque baixo, compras a caminho e SKUs cadastrados. Produtos duplicados entre canais são detectados para você unificar.",
-  },
-  {
-    id: "scanner",
-    icon: ScanBarcode,
-    label: "Scanner",
-    title: "Confira cada pacote antes de despachar",
-    text: "Bipe a etiqueta pela câmera ou leitor USB e marque o pedido como embalado. Também dá entrada no estoque, consulta produtos e faz inventário.",
   },
   {
     id: "relatorios",
@@ -50,25 +29,11 @@ const SCREENS: { id: ScreenId; icon: typeof Truck; label: string; title: string;
     text: "Insumos e embalagens, custos fixos e operacionais, e o rateio médio de embalagem por pacote enviado.",
   },
   {
-    id: "devolucoes",
-    icon: RotateCcw,
-    label: "Devoluções",
-    title: "Devoluções sem perder o controle",
-    text: "Veja o que voltou do marketplace, confirme a entrada no estoque e registre devoluções manuais pelo número do pedido.",
-  },
-  {
     id: "banner",
     icon: Share2,
     label: "Banners",
     title: "Seus resultados prontos para postar",
     text: "Gere um banner de performance para o feed (1:1) ou stories (9:16), escolha o período e o destaque, e ative o modo privacidade.",
-  },
-  {
-    id: "configuracoes",
-    icon: Settings,
-    label: "Configurações",
-    title: "Notificações do seu jeito",
-    text: "Ative alertas nativos no Android ou iPhone e escolha o que mostrar na tela de bloqueio, com prévia em tempo real.",
   },
 ];
 
@@ -84,8 +49,8 @@ export default function Tour() {
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          title="Telas reais. Dados que fazem sentido."
-          subtitle="Navegue pelas principais áreas do ArbiFlow e veja como cada uma resolve uma parte da sua operação."
+          title="Mais do que estoque."
+          subtitle="Dashboard, relatórios, despesas e banners de resultado: o restante da operação, nas telas reais do ArbiFlow."
         />
 
         <div

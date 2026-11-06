@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Logo, ease } from "@/components/ui/primitives";
 
 export const NAV = [
-  { id: "recursos", label: "Recursos" },
+  { id: "estoque", label: "Estoque & Scanner" },
   { id: "tour", label: "Plataforma" },
   { id: "celular", label: "Celular" },
   { id: "multicontas", label: "Multicontas" },

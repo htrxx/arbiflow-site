@@ -66,9 +66,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease, delay: 0.18 }}
         >
-          O ArbiFlow junta vendas, estoque físico, compras e finanças em um só painel. Descubra quanto você
-          <span className="text-text"> realmente lucra</span> depois de taxas, frete e custo
-          dos produtos.
+          Escaneie produtos, controle estoque e compras e descubra quanto você
+          <span className="text-text"> realmente lucra</span> em cada venda, depois de taxas, frete e custo dos produtos.
         </motion.p>
 
         <motion.div
@@ -85,7 +84,7 @@ export default function Hero() {
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </a>
           <a
-            href="#tour"
+            href="#estoque"
             className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface/70 px-6 py-3.5 font-medium text-text backdrop-blur transition-colors duration-200 hover:border-brand/60 sm:w-auto"
           >
             <PlayCircle className="h-4 w-4 text-cyan" />

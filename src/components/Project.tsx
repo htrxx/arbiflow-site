@@ -5,14 +5,14 @@ import { Counter, Reveal, SectionHeading, ease } from "@/components/ui/primitive
 
 /* DRE real de um mês de operação (dados do painel). */
 const DRE = [
-  { label: "Faturamento bruto", value: 8970.04, kind: "in" },
-  { label: "Custo das mercadorias", value: -3207.29, kind: "out" },
-  { label: "Comissões e taxas do marketplace", value: -1090.45, kind: "out" },
-  { label: "Fretes pagos", value: -628.52, kind: "out" },
-  { label: "Lucro líquido real", value: 4043.78, kind: "total" },
+  { label: "Faturamento bruto", value: 13849.2, kind: "in" },
+  { label: "Custo das mercadorias", value: -6871.4, kind: "out" },
+  { label: "Comissões e taxas do marketplace", value: -2493.03, kind: "out" },
+  { label: "Fretes pagos", value: -1437.95, kind: "out" },
+  { label: "Lucro líquido real", value: 3046.82, kind: "total" },
 ] as const;
 
-const MAX = 8970.04;
+const MAX = 13849.2;
 
 function Waterfall() {
   const rows = DRE.map((r) => ({ ...r, width: Math.abs(r.value) }));
@@ -25,7 +25,7 @@ function Waterfall() {
           <p className="mt-1 font-display text-lg font-semibold">De onde vem (e para onde vai) o seu dinheiro</p>
         </div>
         <span className="shrink-0 rounded-full border border-profit/30 bg-profit/10 px-2.5 py-1 tabular-nums text-[11px] text-profit">
-          ROI 82,1%
+          ROI 44,3%
         </span>
       </div>
 
@@ -59,7 +59,7 @@ function Waterfall() {
         })}
       </ul>
       <p className="mt-6 border-t border-line-soft pt-4 text-xs leading-relaxed text-muted">
-        Margem líquida de <span className="text-text">45,1%</span>. Despesas operacionais e embalagens entram na conta
+        Margem líquida de <span className="text-text">22,0%</span>. Despesas operacionais e embalagens entram na conta
         automaticamente quando você as cadastra.
       </p>
     </div>
@@ -80,19 +80,6 @@ export default function Project() {
             }
             subtitle="O painel do marketplace mostra quanto você vendeu. O ArbiFlow mostra quanto sobrou: cruza cada venda com o custo do produto, comissões, tarifas e frete — e entrega o lucro líquido real da sua operação, venda por venda."
           />
-          <Reveal className="grid gap-3 sm:grid-cols-2" delay={0.1}>
-            {[
-              { k: "Lucro real", d: "Calculado por venda, não por estimativa." },
-              { k: "Custo por lote", d: "Cada compra com o seu próprio custo." },
-              { k: "Ticket e ROI", d: "Por produto, conta e período." },
-              { k: "Fechamento mensal", d: "DRE pronto para imprimir." },
-            ].map((x) => (
-              <div key={x.k} className="rounded-2xl border border-line-soft bg-surface/60 p-4">
-                <p className="font-display font-semibold">{x.k}</p>
-                <p className="mt-1 text-sm text-muted">{x.d}</p>
-              </div>
-            ))}
-          </Reveal>
         </div>
         <Reveal delay={0.15}>
           <Waterfall />

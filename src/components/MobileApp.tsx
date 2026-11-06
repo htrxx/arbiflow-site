@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bell, Smartphone, ScanBarcode } from "lucide-react";
+import { Bell } from "lucide-react";
 import Image from "next/image";
+import NotifyDemo from "@/components/NotifyDemo";
 import { SectionHeading, ease } from "@/components/ui/primitives";
 import { MOBILE_SCREENSHOTS } from "@/lib/screens";
 
@@ -53,11 +54,6 @@ function Phone({
 }
 
 export default function MobileApp() {
-  const points = [
-    { icon: Smartphone, t: "Direto no navegador", d: "Abra no celular e adicione à tela de início como um app." },
-    { icon: ScanBarcode, t: "Scanner na palma da mão", d: "Use a câmera para conferir etiquetas e dar entrada no estoque." },
-    { icon: Bell, t: "Avisos na hora", d: "Vendas, prazos de envio e metas chegam como notificação." },
-  ];
   return (
     <section id="celular" className="relative overflow-hidden py-24 sm:py-32">
       <div
@@ -71,20 +67,25 @@ export default function MobileApp() {
               No celular, <span className="text-gradient">completo como no computador.</span>
             </>
           }
-          subtitle="Acompanhe lucro, estoque, despesas e metas de onde estiver, com menu inferior pensado para o toque."
+          subtitle="Acompanhe lucro, estoque, despesas e metas de onde estiver. Abra no navegador e adicione à tela de início como um app, com o scanner na câmera do celular."
         />
 
-        <ul className="mx-auto mt-10 grid max-w-4xl gap-3 sm:grid-cols-3">
-          {points.map((p) => (
-            <li key={p.t} className="flex items-start gap-3 rounded-2xl border border-line-soft bg-surface/60 p-4">
-              <p.icon className="mt-0.5 h-5 w-5 shrink-0 text-brand-2" aria-hidden />
-              <span>
-                <span className="block text-sm font-semibold">{p.t}</span>
-                <span className="mt-0.5 block text-sm leading-relaxed text-muted">{p.d}</span>
-              </span>
-            </li>
-          ))}
-        </ul>
+        <div className="card mx-auto mt-10 max-w-3xl p-5 sm:p-6">
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand/30 bg-brand/10">
+              <Bell className="h-5 w-5 text-brand-2" aria-hidden />
+            </span>
+            <div>
+              <h3 className="font-display text-lg font-semibold">Notificações do seu jeito</h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted text-pretty">
+                Cada venda chega no celular, Android ou iPhone. Escolha o que aparece na tela de bloqueio. Experimente:
+              </p>
+            </div>
+          </div>
+          <div className="mt-5">
+            <NotifyDemo />
+          </div>
+        </div>
       </div>
 
       <div

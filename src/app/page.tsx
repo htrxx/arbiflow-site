@@ -3,13 +3,13 @@
 import { MotionConfig } from "framer-motion";
 import About from "@/components/About";
 import { FaqSection, FinalCta, Footer } from "@/components/Faq";
-import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import MobileApp from "@/components/MobileApp";
 import MultiAccount from "@/components/MultiAccount";
 import Navbar from "@/components/Navbar";
 import Pricing from "@/components/Pricing";
 import Project from "@/components/Project";
+import StockScanner from "@/components/StockScanner";
 import Tour from "@/components/Tour";
 
 export default function Home() {
@@ -18,8 +18,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <StockScanner />
         <Project />
-        <Features />
         <Tour />
         <MobileApp />
         <MultiAccount />
